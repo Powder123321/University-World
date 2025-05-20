@@ -17,6 +17,16 @@ add_action('wp_enqueue_scripts','university_files');
 
 function university_features(){
 
+
+    if(!is_admin() AND is_post_type_archive('program') AND is_main_query()) {
+      $query -> set('orderby', 'title');
+      $query -> set('order', 'ASC');
+      $query -> set('post_per_page', -1);
+
+    }
+
+
+
     add_theme_support('title-tag');
 
 
